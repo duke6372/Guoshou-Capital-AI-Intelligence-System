@@ -1,0 +1,139 @@
+{
+  "generated_at": "2026-04-08T08:49:31.220261+00:00",
+  "input_dir": "/Users/mic/Documents/trae_projects/Guoshou/Project Files",
+  "output_dir": "/Users/mic/Documents/trae_projects/Guoshou/docs/source",
+  "records": [
+    {
+      "source_path": "/Users/mic/Documents/trae_projects/Guoshou/Project Files/PPT汇报大纲.pdf",
+      "file_type": "pdf",
+      "extracted_at": "2026-04-08T08:49:21.100437+00:00",
+      "extractor": "pdfplumber",
+      "pages_or_slides": 6,
+      "total_chars": 3243,
+      "avg_chars": 540,
+      "empty_units": 0,
+      "quality": "medium",
+      "output_md": "/Users/mic/Documents/trae_projects/Guoshou/docs/source/PPT汇报大纲.pdf.md"
+    },
+    {
+      "source_path": "/Users/mic/Documents/trae_projects/Guoshou/Project Files/全维度知识体系调研报告.pdf",
+      "file_type": "pdf",
+      "extracted_at": "2026-04-08T08:49:21.640674+00:00",
+      "extractor": "pdfplumber",
+      "pages_or_slides": 6,
+      "total_chars": 2548,
+      "avg_chars": 424,
+      "empty_units": 0,
+      "quality": "medium",
+      "output_md": "/Users/mic/Documents/trae_projects/Guoshou/docs/source/全维度知识体系调研报告.pdf.md"
+    },
+    {
+      "source_path": "/Users/mic/Documents/trae_projects/Guoshou/Project Files/合同知识调研报告.pdf",
+      "file_type": "pdf",
+      "extracted_at": "2026-04-08T08:49:22.158585+00:00",
+      "extractor": "pdfplumber",
+      "pages_or_slides": 5,
+      "total_chars": 2323,
+      "avg_chars": 464,
+      "empty_units": 0,
+      "quality": "medium",
+      "output_md": "/Users/mic/Documents/trae_projects/Guoshou/docs/source/合同知识调研报告.pdf.md"
+    },
+    {
+      "source_path": "/Users/mic/Documents/trae_projects/Guoshou/Project Files/合资独资项目调研报告.pdf",
+      "file_type": "pdf",
+      "extracted_at": "2026-04-08T08:49:22.565405+00:00",
+      "extractor": "pdfplumber",
+      "pages_or_slides": 3,
+      "total_chars": 1588,
+      "avg_chars": 529,
+      "empty_units": 0,
+      "quality": "medium",
+      "output_md": "/Users/mic/Documents/trae_projects/Guoshou/docs/source/合资独资项目调研报告.pdf.md"
+    },
+    {
+      "source_path": "/Users/mic/Documents/trae_projects/Guoshou/Project Files/国寿资本AI智能体情报系统产品设计方案.pdf",
+      "file_type": "pdf",
+      "extracted_at": "2026-04-08T08:49:23.533803+00:00",
+      "extractor": "pdfplumber",
+      "pages_or_slides": 11,
+      "total_chars": 6565,
+      "avg_chars": 596,
+      "empty_units": 0,
+      "quality": "medium",
+      "output_md": "/Users/mic/Documents/trae_projects/Guoshou/docs/source/国寿资本AI智能体情报系统产品设计方案.pdf.md"
+    },
+    {
+      "source_path": "/Users/mic/Documents/trae_projects/Guoshou/Project Files/国寿资本AI智能体情报系统咨询建议书.pdf",
+      "file_type": "pdf",
+      "extracted_at": "2026-04-08T08:49:24.620028+00:00",
+      "extractor": "pdfplumber",
+      "pages_or_slides": 10,
+      "total_chars": 6432,
+      "avg_chars": 643,
+      "empty_units": 0,
+      "quality": "medium",
+      "output_md": "/Users/mic/Documents/trae_projects/Guoshou/docs/source/国寿资本AI智能体情报系统咨询建议书.pdf.md"
+    },
+    {
+      "source_path": "/Users/mic/Documents/trae_projects/Guoshou/Project Files/国寿资本AI智能体情报系统汇报材料.pptx",
+      "file_type": "pptx",
+      "extracted_at": "2026-04-08T08:49:29.512667+00:00",
+      "extractor": "python-pptx",
+      "pages_or_slides": 22,
+      "total_chars": 3341,
+      "avg_chars": 151,
+      "empty_units": 0,
+      "quality": "low",
+      "output_md": "/Users/mic/Documents/trae_projects/Guoshou/docs/source/国寿资本AI智能体情报系统汇报材料.pptx.md"
+    },
+    {
+      "source_path": "/Users/mic/Documents/trae_projects/Guoshou/Project Files/审核评估报告.pdf",
+      "file_type": "pdf",
+      "extracted_at": "2026-04-08T08:49:29.999385+00:00",
+      "extractor": "pdfplumber",
+      "pages_or_slides": 3,
+      "total_chars": 1827,
+      "avg_chars": 609,
+      "empty_units": 0,
+      "quality": "medium",
+      "output_md": "/Users/mic/Documents/trae_projects/Guoshou/docs/source/审核评估报告.pdf.md"
+    },
+    {
+      "source_path": "/Users/mic/Documents/trae_projects/Guoshou/Project Files/情报维度调研报告.pdf",
+      "file_type": "pdf",
+      "extracted_at": "2026-04-08T08:49:30.407258+00:00",
+      "extractor": "pdfplumber",
+      "pages_or_slides": 4,
+      "total_chars": 1906,
+      "avg_chars": 476,
+      "empty_units": 0,
+      "quality": "medium",
+      "output_md": "/Users/mic/Documents/trae_projects/Guoshou/docs/source/情报维度调研报告.pdf.md"
+    },
+    {
+      "source_path": "/Users/mic/Documents/trae_projects/Guoshou/Project Files/数据维度调研报告.pdf",
+      "file_type": "pdf",
+      "extracted_at": "2026-04-08T08:49:30.870841+00:00",
+      "extractor": "pdfplumber",
+      "pages_or_slides": 4,
+      "total_chars": 1754,
+      "avg_chars": 438,
+      "empty_units": 0,
+      "quality": "medium",
+      "output_md": "/Users/mic/Documents/trae_projects/Guoshou/docs/source/数据维度调研报告.pdf.md"
+    },
+    {
+      "source_path": "/Users/mic/Documents/trae_projects/Guoshou/Project Files/竞争对手调研报告.pdf",
+      "file_type": "pdf",
+      "extracted_at": "2026-04-08T08:49:31.219916+00:00",
+      "extractor": "pdfplumber",
+      "pages_or_slides": 3,
+      "total_chars": 1451,
+      "avg_chars": 483,
+      "empty_units": 0,
+      "quality": "medium",
+      "output_md": "/Users/mic/Documents/trae_projects/Guoshou/docs/source/竞争对手调研报告.pdf.md"
+    }
+  ]
+}

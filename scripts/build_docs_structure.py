@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+import shutil,pathlib
+R=pathlib.Path('/Users/mic/Documents/trae_projects/Guoshou')
+P=R/'Project Files';S=R/'docs/source';D=R/'docs';Sc=R/'scripts'
+for n in ['00-咨询','01-需求','02-方案','03-签约','04-产品功能UI','05-项目管理','06-开发','07-测试','08-交付UAT']:
+    (D/n).mkdir(parents=True,exist_ok=True)
+files=[('00-咨询',P,'PPT汇报大纲.pdf'),('00-咨询',P,'全维度知识体系调研报告.pdf'),('00-咨询',P,'合同知识调研报告.pdf'),('00-咨询',P,'合资独资项目调研报告.pdf'),('00-咨询',P,'情报维度调研报告.pdf'),('00-咨询',P,'数据维度调研报告.pdf'),('00-咨询',P,'竞争对手调研报告.pdf'),('00-咨询',P,'国寿资本AI智能体情报系统咨询建议书.pdf'),('00-咨询',P,'国寿资本AI智能体情报系统产品设计方案.pdf'),('00-咨询',P,'国寿资本AI智能体情报系统汇报材料.pptx'),('00-咨询',P,'China_Life_Capital_AI_Intelligence_Blueprint.pptx'),('00-咨询',P,'国寿.zip'),('00-咨询',P,'审核评估报告.pdf'),('00-咨询',P,'设计对齐稿.pdf'),('00-咨询',P,'国寿资本AI智能体情报系统｜主界面（工作台） .pdf'),('00-咨询',P,'国寿资本AI智能体情报系统｜左侧菜单 页面顺序（桌面端） - [1].pdf'),('00-咨询',P,'国寿资本AI智能体情报系统｜左侧菜单页面顺序（桌面端） - [2].pdf'),('00-咨询',P,'国寿资本AI智能体情报系统｜左侧菜单页面顺序（桌面端） - [3].pdf'),('00-咨询',P,'国寿资本AI智能体情报系统｜左侧菜单页面顺序（桌面端） - [5].pdf'),('00-咨询',P,'国寿资本AI智能体情报系统｜左侧菜单页面顺序（桌面端） - [6].pdf'),('00-咨询',P,'国寿资本AI智能体情报系统｜左侧菜单页面顺序（桌面端） - [7].pdf'),('00-咨询',P,'国寿资本AI智能体情报系统｜左侧菜单页面顺序（桌面端） - [8].pdf'),('00-咨询',P,'国寿资本AI智能体情报系统｜左侧菜单页面顺序（桌面端） - [9].pdf'),('01-需求',S,'PPT汇报大纲.pdf.md'),('01-需求',S,'全维度知识体系调研报告.pdf.md'),('01-需求',S,'合同知识调研报告.pdf.md'),('01-需求',S,'合资独资项目调研报告.pdf.md'),('01-需求',S,'情报维度调研报告.pdf.md'),('01-需求',S,'数据维度调研报告.pdf.md'),('01-需求',S,'竞争对手调研报告.pdf.md'),('01-需求',S,'国寿资本AI智能体情报系统咨询建议书.pdf.md'),('01-需求',S,'国寿资本AI智能体情报系统产品设计方案.pdf.md'),('01-需求',S,'国寿资本AI智能体情报系统汇报材料.pptx.md'),('01-需求',S,'审核评估报告.pdf.md'),('01-需求',D/'analysis','00-背景综合.md'),('01-需求',D/'analysis','PPT汇报大纲-要点卡.md'),('01-需求',D/'analysis','全维度知识体系调研报告-要点卡.md'),('01-需求',D/'analysis','合同知识调研报告-要点卡.md'),('01-需求',D/'analysis','合资独资项目调研报告-要点卡.md'),('01-需求',D/'analysis','情报维度调研报告-要点卡.md'),('01-需求',D/'analysis','数据维度调研报告-要点卡.md'),('01-需求',D/'analysis','竞争对手调研报告-要点卡.md'),('02-方案',D/'analysis','国寿资本AI智能体情报系统咨询建议书-要点卡.md'),('02-方案',D/'analysis','国寿资本AI智能体情报系统产品设计方案-要点卡.md'),('02-方案',D/'analysis','国寿资本AI智能体情报系统汇报材料PPT-要点卡.md'),('02-方案',D/'analysis','审核评估报告-要点卡.md'),('02-方案',D/'design','设计对齐稿.md'),('04-产品功能UI',D/'design','主界面-工作台.html'),('04-产品功能UI',D/'design','主界面-移动端.html'),('04-产品功能UI',D/'design','左侧菜单-页面顺序.html'),('06-开发',Sc,'extract_docs.py'),('06-开发',Sc,'requirements.txt'),('06-开发',S,'manifest.json')]
+for stage,base,fname in files:
+    src=base/fname
+    if not src.exists(): print(f'SKIP {fname}'); continue
+    shutil.copy2(src,D/stage); print(f'COPY [{stage}] {fname}')
+print('COPY DONE')

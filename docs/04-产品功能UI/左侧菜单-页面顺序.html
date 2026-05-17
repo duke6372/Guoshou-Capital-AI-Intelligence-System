@@ -1,0 +1,1413 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>国寿资本AI智能体情报系统｜左侧菜单页面顺序（桌面端）</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap");
+
+      :root {
+        --bg: #f6f8fb;
+        --surface: #ffffff;
+        --surface-2: #f1f5f9;
+        --text: #0f172a;
+        --muted: #475569;
+        --muted-2: #64748b;
+        --border: #e2e8f0;
+        --primary: #0f766e;
+        --primary-2: #0369a1;
+        --gold: #b08d57;
+        --danger: #b91c1c;
+        --warning: #b45309;
+        --ok: #15803d;
+        --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+        --shadow-2: 0 10px 24px rgba(15, 23, 42, 0.08);
+        --radius: 16px;
+        --radius-2: 12px;
+        --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        --font-brand: "Cinzel", ui-serif, Georgia, "Times New Roman", serif;
+        --font-ui: "Josefin Sans", var(--font-sans);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0b1220;
+          --surface: #0f1b2d;
+          --surface-2: #11233a;
+          --text: #e6edf6;
+          --muted: #a6b3c4;
+          --muted-2: #8fa2bb;
+          --border: #1e3352;
+          --primary: #2dd4bf;
+          --primary-2: #38bdf8;
+          --gold: #d6b27c;
+          --danger: #fb7185;
+          --warning: #fbbf24;
+          --ok: #4ade80;
+          --shadow: 0 18px 52px rgba(0, 0, 0, 0.35);
+          --shadow-2: 0 12px 30px rgba(0, 0, 0, 0.35);
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: radial-gradient(1200px 800px at 20% 0%, rgba(15, 118, 110, 0.08), transparent 55%),
+          radial-gradient(1200px 800px at 80% 10%, rgba(3, 105, 161, 0.08), transparent 55%),
+          radial-gradient(900px 650px at 80% 90%, rgba(176, 141, 87, 0.08), transparent 50%),
+          var(--bg);
+        color: var(--text);
+        font-family: var(--font-ui);
+        letter-spacing: 0.1px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .app {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 284px 1fr;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding: 18px 16px;
+        border-right: 1px solid var(--border);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.35));
+        backdrop-filter: blur(14px);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .sidebar {
+          background: linear-gradient(180deg, rgba(15, 27, 45, 0.78), rgba(15, 27, 45, 0.54));
+        }
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 10px 14px 10px;
+        border-radius: 14px;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: radial-gradient(80% 80% at 20% 20%, rgba(45, 212, 191, 0.9), rgba(3, 105, 161, 0.85));
+        display: grid;
+        place-items: center;
+        box-shadow: var(--shadow-2);
+      }
+
+      .brand-title {
+        display: grid;
+        gap: 2px;
+        min-width: 0;
+      }
+
+      .brand-title strong {
+        font-family: var(--font-brand);
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .brand-title span {
+        font-family: var(--font-sans);
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .nav {
+        margin-top: 12px;
+        display: grid;
+        gap: 6px;
+      }
+
+      .nav a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        color: var(--muted);
+        transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+        border: 1px solid transparent;
+        cursor: pointer;
+      }
+
+      .nav a:hover {
+        background: rgba(15, 118, 110, 0.08);
+        color: var(--text);
+      }
+
+      .nav a:focus-visible {
+        outline: 3px solid rgba(3, 105, 161, 0.28);
+        outline-offset: 2px;
+      }
+
+      .nav a.active {
+        background: linear-gradient(90deg, rgba(15, 118, 110, 0.16), rgba(3, 105, 161, 0.08));
+        border-color: rgba(15, 118, 110, 0.22);
+        color: var(--text);
+      }
+
+      .nav svg {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 auto;
+        color: var(--muted-2);
+      }
+
+      .nav a.active svg {
+        color: var(--primary);
+      }
+
+      .sidebar-footer {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 18px;
+        padding: 12px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: var(--shadow-2);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .sidebar-footer {
+          background: rgba(17, 35, 58, 0.72);
+        }
+      }
+
+      .k {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(241, 245, 249, 0.7);
+        color: var(--muted);
+        font-size: 12px;
+        font-family: var(--font-sans);
+        white-space: nowrap;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .pill {
+          background: rgba(17, 35, 58, 0.72);
+        }
+      }
+
+      .main {
+        min-width: 0;
+        display: grid;
+        grid-template-rows: auto 1fr;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(14px);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .topbar {
+          background: rgba(15, 27, 45, 0.72);
+        }
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 14px 20px;
+      }
+
+      .crumbs {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 260px;
+      }
+
+      .crumbs .path {
+        color: var(--muted);
+        font-size: 12px;
+        font-family: var(--font-sans);
+      }
+
+      .crumbs .title {
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+
+      .step {
+        font-family: var(--font-sans);
+        font-size: 12px;
+        color: var(--muted);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(241, 245, 249, 0.66);
+        white-space: nowrap;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .step {
+          background: rgba(17, 35, 58, 0.7);
+        }
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.7);
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 700;
+        transition: background 180ms ease, border-color 180ms ease;
+        cursor: pointer;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .btn {
+          background: rgba(17, 35, 58, 0.72);
+        }
+      }
+
+      .btn:hover {
+        background: rgba(15, 118, 110, 0.08);
+        border-color: rgba(15, 118, 110, 0.22);
+      }
+
+      .btn:focus-visible {
+        outline: 3px solid rgba(3, 105, 161, 0.28);
+        outline-offset: 2px;
+      }
+
+      .btn svg {
+        width: 16px;
+        height: 16px;
+        color: var(--muted-2);
+      }
+
+      .content {
+        padding: 18px 20px 26px 20px;
+      }
+
+      .page {
+        display: none;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      .kpis {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .card {
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(241, 245, 249, 0.55));
+        padding: 14px 14px 12px 14px;
+        display: grid;
+        gap: 8px;
+        min-height: 92px;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .card {
+          background: linear-gradient(180deg, rgba(17, 35, 58, 0.78), rgba(15, 27, 45, 0.58));
+        }
+      }
+
+      .card .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .card .label {
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.2px;
+        font-family: var(--font-sans);
+      }
+
+      .card .value {
+        font-size: 20px;
+        font-weight: 900;
+        letter-spacing: 0.2px;
+      }
+
+      .delta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.6);
+        color: var(--muted);
+        font-size: 12px;
+        font-family: var(--font-sans);
+        white-space: nowrap;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .delta {
+          background: rgba(15, 27, 45, 0.65);
+        }
+      }
+
+      .delta.ok {
+        border-color: rgba(21, 128, 61, 0.3);
+        color: var(--ok);
+      }
+
+      .delta.warn {
+        border-color: rgba(180, 83, 9, 0.3);
+        color: var(--warning);
+      }
+
+      .delta.bad {
+        border-color: rgba(185, 28, 28, 0.3);
+        color: var(--danger);
+      }
+
+      .panel {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.74);
+        box-shadow: var(--shadow-2);
+        overflow: hidden;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .panel {
+          background: rgba(15, 27, 45, 0.72);
+        }
+      }
+
+      .panel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .panel-header h3 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+      }
+
+      .panel-header .meta {
+        color: var(--muted);
+        font-size: 12px;
+        font-family: var(--font-sans);
+      }
+
+      .panel-body {
+        padding: 14px 16px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1.7fr 1fr;
+        gap: 16px;
+        align-items: start;
+      }
+
+      .list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .item {
+        display: grid;
+        gap: 6px;
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.66);
+        cursor: pointer;
+        transition: background 180ms ease, border-color 180ms ease;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .item {
+          background: rgba(15, 27, 45, 0.62);
+        }
+      }
+
+      .item:hover {
+        background: rgba(15, 118, 110, 0.08);
+        border-color: rgba(15, 118, 110, 0.22);
+      }
+
+      .item .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        font-size: 12px;
+        color: var(--muted);
+        background: rgba(241, 245, 249, 0.6);
+        font-family: var(--font-sans);
+        white-space: nowrap;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .tag {
+          background: rgba(17, 35, 58, 0.72);
+        }
+      }
+
+      .tag.red {
+        color: var(--danger);
+        border-color: rgba(185, 28, 28, 0.28);
+      }
+
+      .tag.amber {
+        color: var(--warning);
+        border-color: rgba(180, 83, 9, 0.28);
+      }
+
+      .tag.blue {
+        color: var(--primary-2);
+        border-color: rgba(3, 105, 161, 0.28);
+      }
+
+      .item .title {
+        font-weight: 800;
+        letter-spacing: 0.2px;
+        line-height: 1.25;
+      }
+
+      .item .desc {
+        color: var(--muted);
+        font-family: var(--font-sans);
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .item .foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        color: var(--muted-2);
+        font-size: 12px;
+        font-family: var(--font-sans);
+      }
+
+      .chart {
+        width: 100%;
+        height: 240px;
+        border-radius: 14px;
+        border: 1px dashed rgba(100, 116, 139, 0.35);
+        background: rgba(241, 245, 249, 0.5);
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .chart {
+          background: rgba(17, 35, 58, 0.6);
+          border-color: rgba(143, 162, 187, 0.28);
+        }
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+      }
+
+      .table th,
+      .table td {
+        padding: 10px 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        font-family: var(--font-sans);
+      }
+
+      .table th {
+        color: var(--muted);
+        font-weight: 800;
+        background: rgba(241, 245, 249, 0.7);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .table th {
+          background: rgba(17, 35, 58, 0.72);
+        }
+      }
+
+      .table tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" aria-label="侧边导航">
+        <div class="brand" aria-label="品牌区">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2.5l8 4.4v10.2l-8 4.4-8-4.4V6.9l8-4.4z" stroke="rgba(255,255,255,0.92)" stroke-width="1.6" />
+              <path d="M7.5 10.2h9M7.5 13.8h9" stroke="rgba(255,255,255,0.92)" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="brand-title">
+            <strong>Guoshou Capital</strong>
+            <span>左侧菜单页面顺序</span>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="主导航">
+          <a href="#workbench" data-page-link="workbench">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 10.5l8-6 8 6V20a1.6 1.6 0 0 1-1.6 1.6H5.6A1.6 1.6 0 0 1 4 20v-9.5z" stroke="currentColor" stroke-width="1.6" />
+              <path d="M9 21v-7h6v7" stroke="currentColor" stroke-width="1.6" />
+            </svg>
+            工作台
+          </a>
+          <a href="#bi" data-page-link="bi">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 19V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M8 19v-9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M12 19V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M16 19v-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M20 19V6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+            经营分析（BI）
+          </a>
+          <a href="#portfolio" data-page-link="portfolio">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 20V8.8a2 2 0 0 1 .86-1.64l6-4.2a2 2 0 0 1 2.28 0l6 4.2A2 2 0 0 1 21 8.8V20" stroke="currentColor" stroke-width="1.6" />
+              <path d="M8 20v-8h8v8" stroke="currentColor" stroke-width="1.6" />
+            </svg>
+            项目组合
+          </a>
+          <a href="#intel" data-page-link="intel">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4.5 6.5h15v4.2h-15V6.5z" stroke="currentColor" stroke-width="1.6" />
+              <path d="M4.5 13.3h15v4.2h-15v-4.2z" stroke="currentColor" stroke-width="1.6" />
+              <path d="M7.2 8.6h4.5M7.2 15.4h7.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+            情报中心
+          </a>
+          <a href="#knowledge" data-page-link="knowledge">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 4.8h10.8a1.7 1.7 0 0 1 1.7 1.7V20l-3.1-2.1L12 20l-3.4-2.1L6 20V4.8z" stroke="currentColor" stroke-width="1.6" />
+              <path d="M8.5 8.2h7M8.5 11.6h7M8.5 15h4.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+            知识库
+          </a>
+          <a href="#risk" data-page-link="risk">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3l8 4.7v6.6c0 4.4-3.2 8.3-8 9.7-4.8-1.4-8-5.3-8-9.7V7.7L12 3z" stroke="currentColor" stroke-width="1.6" />
+              <path d="M12 7.8v6.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M12 17.6h.01" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" />
+            </svg>
+            风险预警
+          </a>
+          <a href="#copilot" data-page-link="copilot">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6.2 18.4a7.6 7.6 0 1 1 13-5.2c0 2.4-1.2 4.5-3 5.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M7 18.6h7.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M9.4 21h4.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+            Copilot
+          </a>
+          <a href="#admin" data-page-link="admin">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 15.3a3.3 3.3 0 1 0 0-6.6 3.3 3.3 0 0 0 0 6.6z" stroke="currentColor" stroke-width="1.6" />
+              <path
+                d="M19.6 13.3l1.2-2.1-1.9-3.3-2.4.3a7.7 7.7 0 0 0-1.8-1l-.8-2.3H10l-.8 2.3c-.6.3-1.2.6-1.8 1l-2.4-.3-1.9 3.3 1.2 2.1c-.1.6-.1 1.3 0 2l-1.2 2.1 1.9 3.3 2.4-.3c.5.4 1.1.8 1.8 1l.8 2.3h4l.8-2.3c.6-.3 1.2-.6 1.8-1l2.4.3 1.9-3.3-1.2-2.1c.1-.6.1-1.3 0-2z"
+                stroke="currentColor"
+                stroke-width="1.4"
+                stroke-linejoin="round"
+              />
+            </svg>
+            管理后台
+          </a>
+        </nav>
+
+        <div class="sidebar-footer" aria-label="说明">
+          <div class="k">
+            <span class="pill">顺序：工作台 → BI → 项目 → 情报 → 知识 → 风险 → Copilot → 管理后台</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar" aria-label="顶部栏">
+          <div class="topbar-inner">
+            <div class="crumbs">
+              <div class="path">国寿资本 · AI智能体情报系统</div>
+              <div class="title" id="pageTitle">工作台</div>
+            </div>
+            <div class="step" id="stepText">01 / 08</div>
+            <div class="actions">
+              <button class="btn" id="prevBtn" type="button" aria-label="上一页">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                上一页
+              </button>
+              <button class="btn" id="nextBtn" type="button" aria-label="下一页">
+                下一页
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <div class="content">
+          <section class="page" data-page="workbench">
+            <div class="kpis">
+              <div class="card">
+                <div class="row">
+                  <div class="label">在管规模（签约）</div>
+                  <span class="delta ok">+3.2% YoY</span>
+                </div>
+                <div class="row">
+                  <div class="value">¥1,700亿</div>
+                  <span class="pill"><strong class="mono">22</strong> 只基金</span>
+                </div>
+                <div class="label">口径可追溯 · 更新时间 09:30</div>
+              </div>
+              <div class="card">
+                <div class="row">
+                  <div class="label">组合出租率</div>
+                  <span class="delta warn">-0.6pp MoM</span>
+                </div>
+                <div class="row">
+                  <div class="value">92.4%</div>
+                  <span class="pill"><strong class="mono">2</strong> 异常项目</span>
+                </div>
+                <div class="label">阈值 90% · 可穿透到项目</div>
+              </div>
+              <div class="card">
+                <div class="row">
+                  <div class="label">NOI（本月累计）</div>
+                  <span class="delta ok">+1.1% MoM</span>
+                </div>
+                <div class="row">
+                  <div class="value">¥2.84亿</div>
+                  <span class="pill"><strong class="mono">4</strong> 业态</span>
+                </div>
+                <div class="label">支持归因分析与引用</div>
+              </div>
+              <div class="card">
+                <div class="row">
+                  <div class="label">风险预警（未关闭）</div>
+                  <span class="delta bad">红 3 · 黄 7</span>
+                </div>
+                <div class="row">
+                  <div class="value">10</div>
+                  <span class="pill"><strong class="mono">4</strong> 待确认</span>
+                </div>
+                <div class="label">确认/指派/关闭均留痕</div>
+              </div>
+            </div>
+
+            <div class="grid">
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <h3>经营趋势</h3>
+                    <div class="meta">组合出租率 · 过去12个月</div>
+                  </div>
+                  <span class="pill"><span class="mono">L2</span> 月度更新</span>
+                </div>
+                <div class="panel-body">
+                  <div class="chart">趋势图/指标解释/引用入口</div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <h3>待处理</h3>
+                    <div class="meta">预警确认 · 报告审批 · 复核队列</div>
+                  </div>
+                  <span class="pill"><strong class="mono">4</strong> 待确认</span>
+                </div>
+                <div class="panel-body">
+                  <div class="list">
+                    <div class="item">
+                      <div class="top">
+                        <span class="tag red">红色预警</span>
+                        <span class="tag">SLA 2h</span>
+                      </div>
+                      <div class="title">出租率连续低于阈值（上海·项目A）</div>
+                      <div class="desc">确认原因 · 指派责任人 · 选择处置建议（留痕）。</div>
+                      <div class="foot"><span>资产管理</span><span>点击处理</span></div>
+                    </div>
+                    <div class="item">
+                      <div class="top">
+                        <span class="tag blue">报告审批</span>
+                        <span class="tag">09:05</span>
+                      </div>
+                      <div class="title">竞品专项研判（投后系统对标）</div>
+                      <div class="desc">含引用清单与口径说明；审批后可导出脱敏摘要。</div>
+                      <div class="foot"><span>投资研究</span><span>3 引用</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" data-page="bi">
+            <div class="kpis">
+              <div class="card">
+                <div class="row"><div class="label">出租率（组合）</div><span class="delta warn">-0.6pp</span></div>
+                <div class="row"><div class="value">92.4%</div><span class="pill"><span class="mono">Top</span> 异常 2</span></div>
+                <div class="label">可钻取：组合 → 城市 → 项目</div>
+              </div>
+              <div class="card">
+                <div class="row"><div class="label">租金收入（本月）</div><span class="delta ok">+2.1%</span></div>
+                <div class="row"><div class="value">¥4.36亿</div><span class="pill">同比</span></div>
+                <div class="label">口径说明与血缘追溯</div>
+              </div>
+              <div class="card">
+                <div class="row"><div class="label">NOI（本月）</div><span class="delta ok">+1.1%</span></div>
+                <div class="row"><div class="value">¥2.84亿</div><span class="pill">归因</span></div>
+                <div class="label">支持AI归因（强引用）</div>
+              </div>
+              <div class="card">
+                <div class="row"><div class="label">数据质量</div><span class="delta">中</span></div>
+                <div class="row"><div class="value">86</div><span class="pill"><span class="mono">Score</span></span></div>
+                <div class="label">完整性/准确性/时效性</div>
+              </div>
+            </div>
+
+            <div class="grid">
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <h3>指标趋势与拆解</h3>
+                    <div class="meta">趋势 + 贡献度 + 解释</div>
+                  </div>
+                  <span class="pill">导出（留痕）</span>
+                </div>
+                <div class="panel-body">
+                  <div class="chart">趋势图（12个月）/分解（城市、业态、项目）</div>
+                  <div style="height: 12px"></div>
+                  <table class="table" aria-label="贡献度表">
+                    <thead>
+                      <tr>
+                        <th>维度</th>
+                        <th>对象</th>
+                        <th>贡献</th>
+                        <th>说明</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>城市</td>
+                        <td>上海</td>
+                        <td class="mono">-0.4pp</td>
+                        <td>受项目A空置影响</td>
+                      </tr>
+                      <tr>
+                        <td>业态</td>
+                        <td>商业</td>
+                        <td class="mono">-0.2pp</td>
+                        <td>租户结构变化</td>
+                      </tr>
+                      <tr>
+                        <td>项目</td>
+                        <td>北京·项目B</td>
+                        <td class="mono">+0.1pp</td>
+                        <td>新增租约签约</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <h3>口径与引用</h3>
+                    <div class="meta">指标解释、来源、刷新、审计</div>
+                  </div>
+                  <span class="pill"><span class="mono">Owner</span> 数据治理</span>
+                </div>
+                <div class="panel-body">
+                  <div class="list">
+                    <div class="item">
+                      <div class="top"><span class="tag">口径</span><span class="tag">版本 v1.0</span></div>
+                      <div class="title">出租率（组合）</div>
+                      <div class="desc">定义、过滤条件、计算规则、刷新频率、血缘。</div>
+                      <div class="foot"><span>可追溯</span><span>查看详情</span></div>
+                    </div>
+                    <div class="item">
+                      <div class="top"><span class="tag blue">引用</span><span class="tag">12</span></div>
+                      <div class="title">本页报告引用清单</div>
+                      <div class="desc">导出时附带引用列表；外发默认脱敏。</div>
+                      <div class="foot"><span>审计</span><span>查看记录</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" data-page="portfolio">
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <h3>项目组合视图</h3>
+                  <div class="meta">筛选 + 地图/列表 + 对标对比</div>
+                </div>
+                <span class="pill">组合：全部</span>
+              </div>
+              <div class="panel-body">
+                <div class="grid">
+                  <div class="panel" style="box-shadow: none">
+                    <div class="panel-header">
+                      <div>
+                        <h3>地图（可选）</h3>
+                        <div class="meta">GIS点位 · 资产聚合</div>
+                      </div>
+                      <span class="pill">地图/列表</span>
+                    </div>
+                    <div class="panel-body">
+                      <div class="chart">地图占位（项目点位/聚合热力）</div>
+                    </div>
+                  </div>
+                  <div class="panel" style="box-shadow: none">
+                    <div class="panel-header">
+                      <div>
+                        <h3>项目列表</h3>
+                        <div class="meta">按风险与指标偏离排序</div>
+                      </div>
+                      <span class="pill">对标</span>
+                    </div>
+                    <div class="panel-body">
+                      <div class="list">
+                        <div class="item">
+                          <div class="top"><span class="tag amber">黄</span><span class="tag">商业</span></div>
+                          <div class="title">上海·项目A</div>
+                          <div class="desc">出租率 88.6%（低于阈值）；点击进入项目详情。</div>
+                          <div class="foot"><span>同城对标</span><span>加入对比</span></div>
+                        </div>
+                        <div class="item">
+                          <div class="top"><span class="tag blue">提示</span><span class="tag">商办</span></div>
+                          <div class="title">北京·项目B</div>
+                          <div class="desc">能耗成本上升；可调用AI做归因并留痕。</div>
+                          <div class="foot"><span>归因</span><span>查看详情</span></div>
+                        </div>
+                        <div class="item">
+                          <div class="top"><span class="tag">正常</span><span class="tag">物流</span></div>
+                          <div class="title">杭州·项目D</div>
+                          <div class="desc">运营稳定；支持导出月报与对标。</div>
+                          <div class="foot"><span>月报</span><span>导出</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" data-page="intel">
+            <div class="kpis">
+              <div class="card">
+                <div class="row"><div class="label">今日情报</div><span class="delta ok">+12</span></div>
+                <div class="row"><div class="value">18</div><span class="pill"><span class="mono">L3</span> 5</span></div>
+                <div class="label">订阅驱动 · 可配置推送</div>
+              </div>
+              <div class="card">
+                <div class="row"><div class="label">待复核</div><span class="delta warn">低置信度</span></div>
+                <div class="row"><div class="value">3</div><span class="pill">进入复核队列</span></div>
+                <div class="label">避免错误情报影响决策</div>
+              </div>
+              <div class="card">
+                <div class="row"><div class="label">竞品动态</div><span class="delta">周</span></div>
+                <div class="row"><div class="value">7</div><span class="pill">可加入报告</span></div>
+                <div class="label">对标指标与口径</div>
+              </div>
+              <div class="card">
+                <div class="row"><div class="label">政策解读</div><span class="delta">月</span></div>
+                <div class="row"><div class="value">4</div><span class="pill">影响评估</span></div>
+                <div class="label">证据链可追溯</div>
+              </div>
+            </div>
+
+            <div class="grid">
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <h3>情报列表</h3>
+                    <div class="meta">类型（五类）· L1-L5 · 置信度 · 关联对象</div>
+                  </div>
+                  <span class="pill">筛选/订阅</span>
+                </div>
+                <div class="panel-body">
+                  <div class="list">
+                    <div class="item">
+                      <div class="top"><span class="tag blue">竞争 · L3</span><span class="tag">置信度 高</span></div>
+                      <div class="title">竞品新增项目获取动向：一线核心商办</div>
+                      <div class="desc">自动抽取并归档来源；支持影响评估（选项目/组合）与加入报告。</div>
+                      <div class="foot"><span>来源：公开新闻</span><span>加入报告</span></div>
+                    </div>
+                    <div class="item">
+                      <div class="top"><span class="tag amber">政策 · L2</span><span class="tag">待解读</span></div>
+                      <div class="title">城市更新新规发布：可能影响处置节奏</div>
+                      <div class="desc">一键生成影响评估与行动建议；外发默认脱敏并附引用清单。</div>
+                      <div class="foot"><span>来源：政府公示</span><span>生成评估</span></div>
+                    </div>
+                    <div class="item">
+                      <div class="top"><span class="tag">运营 · L4</span><span class="tag">置信度 中</span></div>
+                      <div class="title">某城市商业客流波动：同比下滑</div>
+                      <div class="desc">建议关联到项目A/B进行影响分析；低置信度需人工复核后推送。</div>
+                      <div class="foot"><span>来源：行业数据</span><span>进入复核</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <h3>订阅中心</h3>
+                    <div class="meta">竞品/城市/业态/主题</div>
+                  </div>
+                  <span class="pill">我的订阅</span>
+                </div>
+                <div class="panel-body">
+                  <div class="list">
+                    <div class="item">
+                      <div class="top"><span class="tag">竞品</span><span class="tag">周报</span></div>
+                      <div class="title">平安不动产</div>
+                      <div class="desc">人事/项目获取/投后系统动态，默认周级汇总。</div>
+                      <div class="foot"><span>推送：系统内</span><span>配置</span></div>
+                    </div>
+                    <div class="item">
+                      <div class="top"><span class="tag">政策</span><span class="tag">解读</span></div>
+                      <div class="title">城市更新/REITs/监管</div>
+                      <div class="desc">重大政策触发时生成解读草稿并进入审批流。</div>
+                      <div class="foot"><span>推送：系统内</span><span>配置</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" data-page="knowledge">
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <h3>知识库</h3>
+                  <div class="meta">制度/SOP · 合同知识 · 案例复盘 · 行业/退出</div>
+                </div>
+                <span class="pill">录入/审核/版本</span>
+              </div>
+              <div class="panel-body">
+                <div class="grid">
+                  <div class="panel" style="box-shadow: none">
+                    <div class="panel-header">
+                      <div>
+                        <h3>分类与模板</h3>
+                        <div class="meta">结构化录入 + 附件</div>
+                      </div>
+                      <span class="pill">新建知识</span>
+                    </div>
+                    <div class="panel-body">
+                      <table class="table" aria-label="知识分类">
+                        <thead>
+                          <tr>
+                            <th>分类</th>
+                            <th>条目</th>
+                            <th>更新</th>
+                            <th>操作</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr><td>制度/流程SOP</td><td class="mono">128</td><td>本周</td><td>进入</td></tr>
+                          <tr><td>合同知识</td><td class="mono">86</td><td>本周</td><td>进入</td></tr>
+                          <tr><td>案例复盘</td><td class="mono">42</td><td>本月</td><td>进入</td></tr>
+                          <tr><td>退出策略</td><td class="mono">18</td><td>本月</td><td>进入</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="panel" style="box-shadow: none">
+                    <div class="panel-header">
+                      <div>
+                        <h3>合同库（入口）</h3>
+                        <div class="meta">解析 · 条款比对 · 风险标签</div>
+                      </div>
+                      <span class="pill">强权限</span>
+                    </div>
+                    <div class="panel-body">
+                      <div class="list">
+                        <div class="item">
+                          <div class="top"><span class="tag blue">优先试点</span><span class="tag">租赁</span></div>
+                          <div class="title">租赁合同</div>
+                          <div class="desc">抽取关键条款与风险点；支持同类合同差异比对。</div>
+                          <div class="foot"><span>可追溯引用</span><span>进入</span></div>
+                        </div>
+                        <div class="item">
+                          <div class="top"><span class="tag blue">优先试点</span><span class="tag">融资</span></div>
+                          <div class="title">融资贷款合同</div>
+                          <div class="desc">还款条款、交叉违约、担保条件等风险标签。</div>
+                          <div class="foot"><span>人工复核</span><span>进入</span></div>
+                        </div>
+                        <div class="item">
+                          <div class="top"><span class="tag">专题</span><span class="tag">合资</span></div>
+                          <div class="title">合资/合作开发合同</div>
+                          <div class="desc">治理/表决/退出机制等条款，建议专题图谱化沉淀。</div>
+                          <div class="foot"><span>高敏感</span><span>进入</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" data-page="risk">
+            <div class="kpis">
+              <div class="card">
+                <div class="row"><div class="label">红色预警</div><span class="delta bad">需处理</span></div>
+                <div class="row"><div class="value">3</div><span class="pill">短信+推送+邮件</span></div>
+                <div class="label">确认/指派/升级/关闭留痕</div>
+              </div>
+              <div class="card">
+                <div class="row"><div class="label">黄色预警</div><span class="delta warn">跟踪</span></div>
+                <div class="row"><div class="value">7</div><span class="pill">推送+邮件</span></div>
+                <div class="label">支持批量指派与复盘</div>
+              </div>
+              <div class="card">
+                <div class="row"><div class="label">处置任务</div><span class="delta">进行中</span></div>
+                <div class="row"><div class="value">12</div><span class="pill">SLA</span></div>
+                <div class="label">从预警到闭环</div>
+              </div>
+              <div class="card">
+                <div class="row"><div class="label">误报率</div><span class="delta ok">可控</span></div>
+                <div class="row"><div class="value">2.8%</div><span class="pill">复核</span></div>
+                <div class="label">规则/模型持续优化</div>
+              </div>
+            </div>
+
+            <div class="grid">
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <h3>预警列表</h3>
+                    <div class="meta">级别 · 类型 · 项目 · 状态</div>
+                  </div>
+                  <span class="pill">默认红色</span>
+                </div>
+                <div class="panel-body">
+                  <div class="list">
+                    <div class="item">
+                      <div class="top"><span class="tag red">红</span><span class="tag">出租率</span></div>
+                      <div class="title">上海·项目A：出租率 88.6%</div>
+                      <div class="desc">触发阈值（90%）已持续 14 天；证据与趋势可回溯。</div>
+                      <div class="foot"><span>责任人：待指派</span><span>进入处置</span></div>
+                    </div>
+                    <div class="item">
+                      <div class="top"><span class="tag amber">黄</span><span class="tag">租约到期</span></div>
+                      <div class="title">深圳·项目C：30天内到期占比偏高</div>
+                      <div class="desc">建议生成续约行动清单并跟踪进度。</div>
+                      <div class="foot"><span>责任人：已指派</span><span>查看</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <h3>规则与推送</h3>
+                    <div class="meta">阈值 · 级别 · 订阅</div>
+                  </div>
+                  <span class="pill"><span class="mono">Owner</span> 风控</span>
+                </div>
+                <div class="panel-body">
+                  <div class="list">
+                    <div class="item">
+                      <div class="top"><span class="tag">规则</span><span class="tag">v1.0</span></div>
+                      <div class="title">出租率阈值：90%</div>
+                      <div class="desc">触发条件、豁免条件、升级策略与审计要求。</div>
+                      <div class="foot"><span>可配置</span><span>编辑</span></div>
+                    </div>
+                    <div class="item">
+                      <div class="top"><span class="tag blue">推送</span><span class="tag">脱敏</span></div>
+                      <div class="title">外发通道策略</div>
+                      <div class="desc">默认发送摘要+链接；敏感字段系统内按权限查看。</div>
+                      <div class="foot"><span>审计留痕</span><span>配置</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" data-page="copilot">
+            <div class="grid">
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <h3>对话</h3>
+                    <div class="meta">经营分析 · 情报研究 · 知识问答 · 风险预警</div>
+                  </div>
+                  <span class="pill">强引用</span>
+                </div>
+                <div class="panel-body">
+                  <div class="list">
+                    <div class="item">
+                      <div class="top"><span class="tag">我</span><span class="tag">09:10</span></div>
+                      <div class="title">解释本月 NOI 变化原因（按项目/业态拆解）。</div>
+                      <div class="desc">要求：每条结论必须展示引用来源与可回溯证据。</div>
+                      <div class="foot"><span>输入</span><span>可编辑</span></div>
+                    </div>
+                    <div class="item">
+                      <div class="top"><span class="tag blue">Copilot</span><span class="tag">已生成</span></div>
+                      <div class="title">Top3 归因项目：上海A、北京B、深圳C</div>
+                      <div class="desc">将展示：结论 → 引用（数据/文档片段）→ 复核建议 → 可执行动作。</div>
+                      <div class="foot"><span>引用 12</span><span>展开</span></div>
+                    </div>
+                    <div class="item">
+                      <div class="top"><span class="tag">动作</span><span class="tag">一键</span></div>
+                      <div class="title">生成：高管晨报（待审批）</div>
+                      <div class="desc">包含引用清单；审批后可导出外发摘要（默认脱敏）。</div>
+                      <div class="foot"><span>审批流</span><span>发起</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <h3>引用与审计</h3>
+                    <div class="meta">来源片段 · 访问记录 · 导出留痕</div>
+                  </div>
+                  <span class="pill">审计可查</span>
+                </div>
+                <div class="panel-body">
+                  <table class="table" aria-label="引用清单">
+                    <thead>
+                      <tr>
+                        <th>类型</th>
+                        <th>来源</th>
+                        <th>片段</th>
+                        <th>时间</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>数据</td>
+                        <td>运营报表</td>
+                        <td class="mono">rent_occupancy</td>
+                        <td class="mono">09:08</td>
+                      </tr>
+                      <tr>
+                        <td>文档</td>
+                        <td>合同库</td>
+                        <td class="mono">clause#12</td>
+                        <td class="mono">09:09</td>
+                      </tr>
+                      <tr>
+                        <td>情报</td>
+                        <td>公开新闻</td>
+                        <td class="mono">news#438</td>
+                        <td class="mono">09:10</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="page" data-page="admin">
+            <div class="grid">
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <h3>管理后台</h3>
+                    <div class="meta">组织/权限 · 数据接入 · 指标口径 · 审计</div>
+                  </div>
+                  <span class="pill"><span class="mono">Admin</span></span>
+                </div>
+                <div class="panel-body">
+                  <div class="list">
+                    <div class="item">
+                      <div class="top"><span class="tag">权限</span><span class="tag">分层</span></div>
+                      <div class="title">组织/项目/数据域授权</div>
+                      <div class="desc">最小权限原则；导出/外发策略与敏感字段脱敏规则。</div>
+                      <div class="foot"><span>审计</span><span>进入</span></div>
+                    </div>
+                    <div class="item">
+                      <div class="top"><span class="tag blue">数据接入</span><span class="tag">连接器</span></div>
+                      <div class="title">内部系统与外部数据源接入</div>
+                      <div class="desc">刷新频率、质量评分、血缘追踪；失败告警与重试策略。</div>
+                      <div class="foot"><span>治理</span><span>进入</span></div>
+                    </div>
+                    <div class="item">
+                      <div class="top"><span class="tag">口径</span><span class="tag">Owner</span></div>
+                      <div class="title">指标字典与口径版本</div>
+                      <div class="desc">Top指标统一定义；变更审批与影响分析。</div>
+                      <div class="foot"><span>发布</span><span>进入</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-header">
+                  <div>
+                    <h3>审计与留痕</h3>
+                    <div class="meta">检索/问答/引用/导出/分享</div>
+                  </div>
+                  <span class="pill">只读</span>
+                </div>
+                <div class="panel-body">
+                  <div class="chart">审计看板占位（访问趋势/高风险操作/导出统计）</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      const order = [
+        { key: "workbench", title: "工作台" },
+        { key: "bi", title: "经营分析（BI）" },
+        { key: "portfolio", title: "项目组合" },
+        { key: "intel", title: "情报中心" },
+        { key: "knowledge", title: "知识库" },
+        { key: "risk", title: "风险预警" },
+        { key: "copilot", title: "Copilot" },
+        { key: "admin", title: "管理后台" },
+      ];
+
+      const pageTitle = document.getElementById("pageTitle");
+      const stepText = document.getElementById("stepText");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      function setActive(key) {
+        const idx = Math.max(0, order.findIndex((x) => x.key === key));
+        const current = order[idx];
+
+        document.querySelectorAll(".page").forEach((el) => {
+          el.classList.toggle("active", el.getAttribute("data-page") === current.key);
+        });
+
+        document.querySelectorAll("[data-page-link]").forEach((el) => {
+          el.classList.toggle("active", el.getAttribute("data-page-link") === current.key);
+        });
+
+        pageTitle.textContent = current.title;
+        stepText.textContent = String(idx + 1).padStart(2, "0") + " / " + String(order.length).padStart(2, "0");
+
+        prevBtn.disabled = idx === 0;
+        nextBtn.disabled = idx === order.length - 1;
+        prevBtn.style.opacity = idx === 0 ? "0.5" : "1";
+        nextBtn.style.opacity = idx === order.length - 1 ? "0.5" : "1";
+
+        prevBtn.onclick = () => {
+          if (idx > 0) location.hash = "#" + order[idx - 1].key;
+        };
+        nextBtn.onclick = () => {
+          if (idx < order.length - 1) location.hash = "#" + order[idx + 1].key;
+        };
+      }
+
+      function getKeyFromHash() {
+        const h = (location.hash || "").replace("#", "").trim();
+        return order.some((x) => x.key === h) ? h : "workbench";
+      }
+
+      window.addEventListener("hashchange", () => setActive(getKeyFromHash()));
+      setActive(getKeyFromHash());
+    </script>
+  </body>
+</html>
+
