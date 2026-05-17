@@ -20,12 +20,9 @@ node_modules/
 *.swp
 *.swo
 
-# Large binary files (use Git LFS for these instead)
-*.zip
-*.pptx
-*.pdf
+# Large binary files (already tracked by Git LFS)
 *.jpg
 *.png
 
-# Duplicated files (docs/ and Project Files/ have same content)
-Project Files/
+# Large zip archives (not tracked - exceeds LFS free quota)
+*.zip
